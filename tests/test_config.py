@@ -1,5 +1,5 @@
-import pytest
 from pathlib import Path
+import pytest
 from torrent.conf import get_config, get_home_config_dir, ConfigError
 
 TEST_DATA_DIR = Path(__file__).resolve().parent / 'test_config'
