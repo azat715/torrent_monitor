@@ -21,8 +21,8 @@ def test_suit1(datafiles):
         assert torrent.encoding is None
         assert str(torrent.paths[0]) == 'archlinux-2019.08.01-x86_64.iso'
         assert torrent.lengths[0] == 652214272
-        assert torrent.publisher == 'http://tracker.archlinux.org:6969/announce'
-        assert torrent.publisher_url == 'http://tracker.archlinux.org:6969/announce'
+        assert torrent.publisher is None
+        assert torrent.publisher_url is None
 
 @pytest.mark.datafiles(TEST_DATA_DIR)
 def test_suit2(datafiles):
@@ -32,3 +32,5 @@ def test_suit2(datafiles):
         assert torrent.encoding == 'UTF-8'
         assert str(torrent.paths[0]) == 'Altered.Carbon.S01E01.1080p.NF.WEBRip.4xRus.Eng.sergiy_psp.mkv'
         assert torrent.lengths[0] == 6156344571
+        assert torrent.publisher == 'rutracker.org'
+        assert torrent.publisher_url == 'https://rutracker.org/forum/viewtopic.php?t=5517277'

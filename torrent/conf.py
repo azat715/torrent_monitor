@@ -6,6 +6,7 @@ env = environ
 
 class ConfigError(Exception):
     def __init__(self, path):
+        super(ConfigError, self).__init__(path)
         print(f'{str(path)} Not found')
 
 def get_home_config_dir():
@@ -13,10 +14,10 @@ def get_home_config_dir():
 
 def get_root_path():
     try:
-        ROOT = Path(env["ROOT"])
+        root = Path(env["ROOT"])
     except KeyError:
-        ROOT = get_home_config_dir()
-    return ROOT
+        root = get_home_config_dir()
+    return root
 
 def get_config():
     path_config = get_root_path()
