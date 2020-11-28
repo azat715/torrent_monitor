@@ -69,6 +69,16 @@ class Torrent:
             self._raw[b"info"].get(b"length"),
         ]
 
+    @property
+    def multiple(self):
+        if len(self.paths) > 1:
+            return True
+        return False
+
+    @property
+    def total_size(self):
+        return sum(self.lengths)
+
     def __repr__(self):
         return "Torrent('name':  {self.name}, 'announce': {self.announce}, 'announce_list': {self.announce_list}, \
 'comment': {self.comment}, 'created_by': {self.created_by}, 'creation_date': {self.creation_date}, \
@@ -102,3 +112,9 @@ class Torrent:
     @staticmethod
     def convert(items):
         return list(map(lambda x: x.decode("utf-8", errors="replace"), items))
+
+    @classmethod
+    def read_torrent_file(cls, torrent: str):
+        path = Path(torrent)
+        with path.open('rb') as f:
+            return cls(f.read())
