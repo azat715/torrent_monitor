@@ -9,6 +9,9 @@ python = "^3.8"
 "bencoder.pyx" = "^2.0.1"
 fire = "^0.3.1"
 
+[tool.poetry.scripts]
+torrent = "torrent.main:cli"
+
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-datafiles = "^2.0"
