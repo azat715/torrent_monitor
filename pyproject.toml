@@ -8,6 +8,7 @@ authors = ["azat715 <azat715@gmail.com>"]
 python = "^3.8"
 "bencoder.pyx" = "^2.0.1"
 fire = "^0.3.1"
+peewee = "^3.14.0"
 
 [tool.poetry.scripts]
 torrent = "torrent.main:cli"
